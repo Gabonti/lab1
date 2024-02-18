@@ -1,5 +1,6 @@
 import Foundation
 
+//Exercise 1
 let add = { (a: Double, b: Double) -> Double in a + b }
 
 let subtract = { (a: Double, b: Double) -> Double in a - b }
@@ -68,3 +69,55 @@ func calculator() {
 
 // Call the calculator function to start the program
 calculator()
+
+
+//Exercise 2
+import Foundation
+
+func combineStrings() {
+    print("Введите первую строку:")
+    let line1 = readLine() ?? ""
+    
+    print("Введите вторую строку:")
+    let line2 = readLine() ?? ""
+    
+    let combinedLine = line1 + line2
+    print("Результат объединения: \(combinedLine)")
+}
+
+// Function to flip a string
+func flipString() {
+    print("Введите строку для переворота:")
+    if let inputString = readLine() {
+        let reversedString = String(inputString.reversed())
+        print("Результат переворота: \(reversedString)")
+    }
+}
+
+func countCharacters() {
+    print("Введите строку:")
+    if let inputString = readLine() {
+        let characterCount = inputString.filter { !$0.isWhitespace }.count
+        print("Количество символов (без пробелов) : \(characterCount)")
+    }
+}
+
+func searchSubstring() {
+    print("Введите строку:")
+    if let mainString = readLine() {
+        print("Введите подстроку для поиска:")
+        if let substring = readLine() {
+            if let range = mainString.range(of: substring) {
+                let index = mainString.distance(from: mainString.startIndex, to: range.lowerBound)
+                print("Первое вхождение подстроки на позиции: \(index)")
+            } else {
+                print("Подстрока не найдена.")
+            }
+        }
+    }
+}
+
+combineStrings()
+flipString()
+countCharacters()
+searchSubstring()
